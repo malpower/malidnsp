@@ -19,3 +19,7 @@ server.bind(53, ()=>
 {
     console.log("DNS ON.");
 });
+server.on("error", (e)=>
+{
+    console.log(e);
+});
