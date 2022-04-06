@@ -1,0 +1,22 @@
+{
+  "name": "malidnsp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malpower/malidnsp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malpower/malidnsp/issues"
+  },
+  "homepage": "https://github.com/malpower/malidnsp#readme",
+  "dependencies": {
+    "@types/node": "^17.0.23"
+  }
+}
