@@ -6,10 +6,10 @@ const key=fs.readFileSync(`${__dirname}/priv.key`).toString("utf8");
 
 const server=UDP.createSocket("udp4", (packet, remote)=>
 {
-    let decrypted=crypto.privateDecrypt(key, packet);
+    let decrypted=crypto.privateDecrypt({key, passphrase: process.argv[4]}, packet);
     let s=UDP.createSocket("udp4", (rp)=>
     {
-        server.send(crypto.privateEncrypt(key, rp), remote.port, remote.address);
+        server.send(crypto.privateEncrypt({key, passphrase: process.argv[4]}, rp), remote.port, remote.address);
         s.close();
     });
     s.send(decrypted, 53, process.argv[2]);

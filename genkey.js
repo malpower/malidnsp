@@ -17,7 +17,7 @@ const {
       type: 'pkcs8',
       format: 'pem',
       cipher: 'aes-256-cbc',
-      passphrase: 'top secret'
+      passphrase: process.argv[2]
     }
   });
 
