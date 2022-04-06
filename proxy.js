@@ -6,6 +6,7 @@ const key=fs.readFileSync(`${__dirname}/pub.key`).toString("utf8");
 
 const server=UDP.createSocket("udp4", (packet, remote)=>
 {
+    console.log(`working... query from ${remote.address}`);
     let encrypted=crypto.publicEncrypt(key, packet);
     let s=UDP.createSocket("udp4", (rp)=>
     {
