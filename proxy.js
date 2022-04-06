@@ -10,7 +10,14 @@ const server=UDP.createSocket("udp4", (packet, remote)=>
     let encrypted=crypto.publicEncrypt(key, packet);
     let s=UDP.createSocket("udp4", (rp)=>
     {
-        server.send(crypto.publicDecrypt(key, rp), remote.port, remote.address);
+        try
+        {
+            server.send(crypto.publicDecrypt(key, rp), remote.port, remote.address);
+        }
+        catch (e)
+        {
+            console.log(e.message);
+        }
         s.close();
     });
     s.send(encrypted, Number.parseInt(process.argv[3]), process.argv[2]);
